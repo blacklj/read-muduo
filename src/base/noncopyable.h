@@ -1,0 +1,18 @@
+#ifndef __NONCOPYABLE_H__
+#define __NONCOPYABLE_H__
+
+namespace muduo {
+
+class noncopyable {
+public:
+	noncopyable(const noncopyable &) = delete;
+	void operator=(const noncopyable &) = delete;
+
+protected:
+	noncopyable() = default;
+	~noncopyable() = default;
+};
+
+}
+
+#endif
