@@ -24,13 +24,23 @@ public:
 
 	void lock() {
 		pthread_mutex_lock(&mutex_);
+		assignHolder();
 	}
 	void unlock() {
+		unassignHolder();
 		pthread_mutex_unlock(&mutex_);
 	}
 
 	pthread_mutex_t *getThreadMutex() {
 		return &mutex_;
+	}
+
+	bool isLockedByThisThread() const {
+		return holder_ == CurrentThread::tid();
+	}
+
+	void assertLocked() {
+		assert(isLockedByThisThread());
 	}
 
 private:

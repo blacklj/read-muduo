@@ -35,10 +35,25 @@ add_executable(singleton_test
 			   ../src/base/CountDownLatch.cc
 			   ../src/base/Thread.cc)
 
+add_executable(singletonthreadlocal_test
+			   SingletonThreadLocal_test.cc
+			   ../src/base/CurrentThread.cc
+			   ../src/base/CountDownLatch.cc
+			   ../src/base/Thread.cc)
+
+add_executable(threadpool_test
+			   ThreadPool_test.cc
+			   ../src/base/ThreadPool.cc
+			   ../src/base/CurrentThread.cc
+			   ../src/base/CountDownLatch.cc
+			   ../src/base/Thread.cc)
+
 target_link_libraries(thread_test pthread)
 target_link_libraries(threadlocal_test pthread)
 target_link_libraries(threadlocalsingleton_test pthread)
 target_link_libraries(singleton_test pthread)
+target_link_libraries(singletonthreadlocal_test pthread)
+target_link_libraries(threadpool_test pthread)
 
 include_directories(../src)
 
