@@ -48,12 +48,51 @@ add_executable(threadpool_test
 			   ../src/base/CountDownLatch.cc
 			   ../src/base/Thread.cc)
 
+add_executable(logstream_test
+			   LogStream_test.cc
+			   ../src/base/LogStream.cc)
+add_executable(logger_test
+			   Logger_test.cc
+			   ../src/base/Logger.cc
+			   ../src/base/LogStream.cc
+			   ../src/base/Timestamp.cc
+			   ../src/base/TimeZone.cc
+			   ../src/base/Thread.cc
+			   ../src/base/CountDownLatch.cc
+			   ../src/base/CurrentThread.cc
+			   ../src/base/ThreadPool.cc)
+
+add_executable(blockingqueue_test
+			   BlockingQueue_test.cc
+			   ../src/base/Logger.cc
+			   ../src/base/Condition.cc
+			   ../src/base/CountDownLatch.cc
+			   ../src/base/LogStream.cc
+			   ../src/base/CurrentThread.cc
+			   ../src/base/Timestamp.cc
+			   ../src/base/TimeZone.cc
+			   ../src/base/Thread.cc)
+
+add_executable(boundedblockingqueue_test
+			   BoundedBlockingQueue_test.cc
+			   ../src/base/Logger.cc
+			   ../src/base/Condition.cc
+			   ../src/base/CountDownLatch.cc
+			   ../src/base/LogStream.cc
+			   ../src/base/CurrentThread.cc
+			   ../src/base/Timestamp.cc
+			   ../src/base/TimeZone.cc
+			   ../src/base/Thread.cc)
+
 target_link_libraries(thread_test pthread)
 target_link_libraries(threadlocal_test pthread)
 target_link_libraries(threadlocalsingleton_test pthread)
 target_link_libraries(singleton_test pthread)
 target_link_libraries(singletonthreadlocal_test pthread)
 target_link_libraries(threadpool_test pthread)
+target_link_libraries(logger_test pthread)
+target_link_libraries(blockingqueue_test pthread)
+target_link_libraries(boundedblockingqueue_test pthread)
 
 include_directories(../src)
 
