@@ -84,6 +84,18 @@ add_executable(boundedblockingqueue_test
 			   ../src/base/TimeZone.cc
 			   ../src/base/Thread.cc)
 
+add_executable(fileutil_test
+			   FileUtil_test.cc
+			   ../src/base/FileUtil.cc
+			   ../src/base/Logger.cc
+			   ../src/base/Condition.cc
+			   ../src/base/CountDownLatch.cc
+			   ../src/base/LogStream.cc
+			   ../src/base/CurrentThread.cc
+			   ../src/base/Timestamp.cc
+			   ../src/base/TimeZone.cc
+			   ../src/base/Thread.cc)
+
 target_link_libraries(thread_test pthread)
 target_link_libraries(threadlocal_test pthread)
 target_link_libraries(threadlocalsingleton_test pthread)
@@ -93,6 +105,7 @@ target_link_libraries(threadpool_test pthread)
 target_link_libraries(logger_test pthread)
 target_link_libraries(blockingqueue_test pthread)
 target_link_libraries(boundedblockingqueue_test pthread)
+target_link_libraries(fileutil_test pthread)
 
 include_directories(../src)
 
